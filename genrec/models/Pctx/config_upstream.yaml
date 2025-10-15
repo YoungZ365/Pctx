@@ -1,0 +1,54 @@
+# Overwritting configs
+train_batch_size: 256
+eval_batch_size: 256
+lr: 3e-3
+
+# Config for SASRec
+max_item_seq_len: 20
+n_embd: 256
+n_layer: 2
+n_head: 2
+n_inner: 256
+activation_function: gelu_new
+resid_pdrop: 0.0
+embd_pdrop: 0.0
+attn_pdrop: 0.5
+layer_norm_epsilon: 1e-12
+initializer_range: 0.02
+#new
+
+
+
+pretrained_personalized_model_name: SASRec
+max_item_seq_len_SASRec: 20 # for the inference of SASRec, bacause max_item_seq_len will * 4
+
+
+
+dict_dir: dict/
+
+
+pretrained_model_path: pretrained_model_path
+pretrained_model_name: pretrained_model_name
+
+#
+diff_emb_name: interaction2personalized_semantic_emb.pkl
+#
+diff_emb_name_test: interaction2personalized_semantic_emb_test.pkl
+
+#cluster
+
+cluster_file1_ThreeEle: ThreeEle_clustered_sorted_interaction2personalized_semantic_emb.pkl
+cluster_file2_SetClusterIndexEmb: SetClusterEmb_ThreeEle_clustered_sorted_interaction2personalized_semantic_emb.pkl
+
+
+
+refresh_cluster_result: False #If it's true, we will cluster from scratch though we have cluster files.
+
+
+
+n_groups: seeSH       # we group the itemID by their interactions, the number of group
+distance: seeSH # the distance in the same-distance array
+start: seeSH # the first element in the same-distance array
+k_gamma: seeSH # the hyperparameters for the normalized gamma distribution
+#
+

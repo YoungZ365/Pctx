@@ -1,0 +1,77 @@
+# Overwritting configs
+metadata: sentence    # Overwrite data config file, TIGER only supports sentence metadata
+lr: 0.003             # Overwrite learning rate
+weight_decay: 0.1    # Overwrite weight decay
+
+# Config for sentence embedding model
+sent_emb_model: sentence-transformers/sentence-t5-base
+sent_emb_batch_size: 512
+sent_emb_dim: 768
+sent_emb_pca: 128     # -1 means no PCA, otherwise PCA dimension
+
+# Config for RQ
+#rq_faiss: True means applying Faiss library's Residual Quantizer to train RQ-VAE, instead of NN
+#if it's False, meaning that we will use nn to train rq-vae
+rq_faiss: True
+faiss_omp_num_threads: 32
+rq_n_codebooks: 3
+rq_codebook_size: 256
+#
+# Config for RQ-VAE
+# Omit this part if using Faiss instead of training RQ-VAE from scratch
+#****************************If you use faiss, please ignore the config below********************************
+rqvae_hidden_sizes: [2048,1024,512,256,128]
+rqvae_dropout: 0.0
+rqvae_lr: 0.001
+ravae_batch_size: 2048
+rqvae_epoch: 10000
+rqvae_beta: 0.25
+rqvae_verbose: 500
+rqvae_low_usage_threshold: -1 # reassignment (to low usage entries only) is triggered when there're more than 10 low usage entries, -1 means no reassignment
+#****************************If you use faiss, please ignore the config above********************************
+
+
+# Config for TIGER
+n_user_tokens: 1      # Number of user tokens hashed from user ids
+max_item_seq_len: 20  # Maximum #items in a sequence
+num_beams: 50         # Number of beams for beam search
+
+# Config for T5
+num_layers: 4
+num_decoder_layers: 4
+d_model: 128
+d_ff: 1024
+num_heads: 6
+d_kv: 64
+dropout_rate: 0.1
+activation_function: "relu"
+feed_forward_proj: "relu"
+
+
+#new
+pretrained_personalized_model_name: SASRec
+max_item_seq_len_SASRec: 20 # for the inference of SASRec, bacause max_item_seq_len will * 4
+#
+#if this one is True, when you run main, you will only run the GR, or else, you will only run the upstream
+alpha_fused_for_diff: 0.5
+pca_diff_dimension: 64
+pca_sentence_dimension: 128
+variants:  accurate   # accurate or accAndRand or random
+augmentation_probability: 0.7 # if you set variants as acc&ran, you should set this one.
+#
+sidStr2itemIDInt: sidStr2itemIDInt.pkl
+#important
+run_GR_or_not: True #Select True of False
+refresh_rqvae_result: True # if it's true, we will generate new sids no matter there exists a sidpath or not
+
+
+n_inference_ensemble: 5 # if -1, no else, apply inference_ensemble
+
+frequency_threshold: 0.2
+
+run_mode: 'train'
+test_ckpt: 'None'
+test_file_dir: test_file_dir/
+
+
+
