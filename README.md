@@ -145,7 +145,7 @@ bash train_game.sh
 
 ## Citing this work
 
-Please cite the following paper if you find our code, processed datasets, or tokenizers helpful.
+Please cite the following paper if you find our code, processed datasets, or tokenizers etc. helpful.
 
 ```
 @article{zhong2025pctx,
