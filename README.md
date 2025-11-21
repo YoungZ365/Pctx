@@ -1,14 +1,14 @@
 # Pctx
 
 This repository provides the pyTorch-based open-source code for implementing Pctx described in our paper
-"**Pctx: Tokenizing Personalized Context for Generative Recommendation**".
+**<a href="https://arxiv.org/abs/2510.21276" target="_blank">Pctx: Tokenizing Personalized Context for Generative Recommendation</a>**.
 
 We suggest running our code on 2 GPUs, each with at least 24GB of memory.
 
 After choosing a specific dataset,
 
 * If you want to reproduce our results directly (test only), please follow *Part 1: Step0 -> Step1 -> Step2*.
-* If you want to run the codes of Pctx for training, please follow *Part 2: Step0 -> Step1 (you may skip) -> Step2 -> Step3*.
+* If you want to run the codes of Pctx for training (including training, validating and testing), please follow *Part 2: Step0 -> Step1 (you may skip) -> Step2 -> Step3*.
 
 <div  align="center">
 <img src="asset/motivation.png" style="width: 60%"/>
