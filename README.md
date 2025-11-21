@@ -141,3 +141,17 @@ bash train_scientific.sh
 ```bash
 bash train_game.sh
 ```
+
+
+## Citing this work
+
+Please cite the following paper if you find our code, processed datasets, or tokenizers helpful.
+
+```
+@article{zhong2025pctx,
+  title={Pctx: Tokenizing Personalized Context for Generative Recommendation},
+  author={Zhong, Qiyong and Su, Jiajie and Ma, Yunshan and McAuley, Julian and Hou, Yupeng},
+  journal={arXiv preprint arXiv:2510.21276},
+  year={2025}
+}
+```
